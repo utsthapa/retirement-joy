@@ -1,31 +1,21 @@
 "use client";
 
 import { Card, CardBody } from "@nextui-org/react";
+import moment from "moment";
 import { IconType } from "react-icons";
-import { IoBookOutline } from "react-icons/io5";
 import { LuLayers } from "react-icons/lu";
-import { MdOutlineVideoLibrary } from "react-icons/md";
 type ItemCountType = {
   count: number;
   name: string;
   icon: IconType;
 };
-export const CourseCard = () => {
+type Blogs = any;
+export const CategoryCard = ({ blogs }: { blogs: Array<Blogs> }) => {
   const itemCounts: Array<ItemCountType> = [
     {
-      count: 5,
-      name: "modules",
+      count: blogs.length,
+      name: "blogs",
       icon: LuLayers,
-    },
-    {
-      count: 10,
-      name: "lessons",
-      icon: IoBookOutline,
-    },
-    {
-      count: 15,
-      name: "videos",
-      icon: MdOutlineVideoLibrary,
     },
   ];
 
@@ -44,7 +34,7 @@ export const CourseCard = () => {
           repellendus, voluptatem quod modi velit assumenda nostrum quas
           corrupti repellat deserunt laboriosam laudantium quo.
         </p>
-        <LessonCard />
+        <BlogItemsCard blogs={blogs} />
       </CardBody>
     </Card>
   );
@@ -59,22 +49,21 @@ const ItemCount = ({ data }: { data: ItemCountType }) => {
   );
 };
 
-const LessonCard = () => {
-  const topics = [
-    "Lorem ipsum dolor sit amet.",
-    "Placeat doloribus sunt sit provident.",
-    "Sequi pariatur illo distinctio excepturi!",
-    "Dolor eveniet ipsam laborum magni?",
-    "Fugit a deserunt sint ipsa!",
-  ];
-
+const BlogItemsCard = ({ blogs }: { blogs: Array<Blogs> }) => {
   return (
-    <div className="border border-gray-400 rounded-md divide-y divide-gray-400">
-      {topics.map((topic, i) => (
-        <div key={i} className="px-6 py-4">
-          <span className="font-semibold">{topic}</span>
-        </div>
+    <ul className="border border-gray-400 rounded-md divide-y divide-gray-400">
+      {blogs.map((blog) => (
+        <li key={blog._id}>
+          <a href={`/blog/${blog.slug.current}`}>
+            <div className="flex flex-row px-6 py-4 gap-4 justify-between items-center cursor-pointer">
+              <span className="font-semibold">{blog.title}</span>
+              <span className="font-normal text-gray-500 text-sm">
+                {moment(new Date(blog.publishedAt)).format("LL")}
+              </span>
+            </div>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };

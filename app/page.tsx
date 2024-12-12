@@ -1,7 +1,6 @@
 import { Link } from "@nextui-org/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 
-import { CourseCard } from "@/components/course-card";
 import { CardsList } from "@/components/item-card";
 import { subtitle, title } from "@/components/primitives";
 import { siteConfig } from "@/config/site";
@@ -36,9 +35,6 @@ export default function Home() {
 
       <div className="mt-8 w-full">
         <CardsList />
-      </div>
-      <div className="mt-8 w-full">
-        <CourseCard />
       </div>
     </section>
   );
