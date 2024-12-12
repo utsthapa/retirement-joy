@@ -1,0 +1,87 @@
+.blog .blog-head {
+  @apply max-w-3xl flex flex-col justify-center items-center gap-6 mb-10 w-full;
+}
+
+.blog .blog-content {
+  @apply text-lg max-w-3xl text-gray-700 leading-8;
+}
+
+.blog .blog-title {
+  @apply text-4xl font-bold mb-5 text-black;
+}
+
+.blog .feature-image {
+  @apply rounded-lg w-full h-full;
+}
+
+.blog .blog-content > div {
+  margin-top: 28px;
+  margin-bottom: 1.5rem;
+  padding: 1.8rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px 15px gainsboro;
+}
+
+.blog .blog-content:last-child {
+  margin-bottom: 1.6rem;
+}
+
+.blog .blog-content {
+  h1,
+  h2,
+  h3 {
+    @apply mt-6;
+  }
+  h4,
+  h5,
+  h6 {
+    @apply mt-5;
+  }
+
+  a {
+    @apply text-blue-600 underline;
+  }
+
+  p {
+    @apply text-start mt-4;
+  }
+
+  hr {
+    margin: 1rem 0 1.5rem;
+    opacity: 0.1;
+    border-width: 1px;
+  }
+
+  ol,
+  ul {
+    @apply ml-6 list-outside;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
+  }
+
+  ol > li,
+  ul > li {
+    margin-top: 16px;
+  }
+
+  ul ul {
+    list-style-type: circle;
+  }
+
+  ol ol {
+    list-style-type: lower-roman;
+  }
+
+  div:has(> img) {
+    @apply shadow-none p-0 mx-auto;
+  }
+
+  img {
+    @apply max-h-[480px];
+  }
+}
